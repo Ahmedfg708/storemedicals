@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_export" targetNamespace="http://tempuri.org/DataSet_export.xsd" xmlns:mstns="http://tempuri.org/DataSet_export.xsd" xmlns="http://tempuri.org/DataSet_export.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_export" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_export" msprop:Generator_UserDSName="DataSet_export">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable_export" msprop:Generator_TableClassName="DataTable_exportDataTable" msprop:Generator_TableVarName="tableDataTable_export" msprop:Generator_TablePropName="DataTable_export" msprop:Generator_RowDeletingName="DataTable_exportRowDeleting" msprop:Generator_RowChangingName="DataTable_exportRowChanging" msprop:Generator_RowEvHandlerName="DataTable_exportRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_exportRowDeleted" msprop:Generator_UserTableName="DataTable_export" msprop:Generator_RowChangedName="DataTable_exportRowChanged" msprop:Generator_RowEvArgName="DataTable_exportRowChangeEvent" msprop:Generator_RowClassName="DataTable_exportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="shop_name" msprop:Generator_ColumnVarNameInTable="columnshop_name" msprop:Generator_ColumnPropNameInRow="shop_name" msprop:Generator_ColumnPropNameInTable="shop_nameColumn" msprop:Generator_UserColumnName="shop_name" type="xs:string" minOccurs="0" />
+              <xs:element name="item_name" msprop:Generator_ColumnVarNameInTable="columnitem_name" msprop:Generator_ColumnPropNameInRow="item_name" msprop:Generator_ColumnPropNameInTable="item_nameColumn" msprop:Generator_UserColumnName="item_name" type="xs:string" minOccurs="0" />
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:double" minOccurs="0" />
+              <xs:element name="quantiy" msprop:Generator_ColumnVarNameInTable="columnquantiy" msprop:Generator_ColumnPropNameInRow="quantiy" msprop:Generator_ColumnPropNameInTable="quantiyColumn" msprop:Generator_UserColumnName="quantiy" type="xs:int" minOccurs="0" />
+              <xs:element name="dat" msprop:Generator_ColumnVarNameInTable="columndat" msprop:Generator_ColumnPropNameInRow="dat" msprop:Generator_ColumnPropNameInTable="datColumn" msprop:Generator_UserColumnName="dat" type="xs:string" minOccurs="0" />
+              <xs:element name="user_add" msprop:Generator_ColumnVarNameInTable="columnuser_add" msprop:Generator_ColumnPropNameInRow="user_add" msprop:Generator_ColumnPropNameInTable="user_addColumn" msprop:Generator_UserColumnName="user_add" type="xs:string" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="tim" msprop:Generator_ColumnVarNameInTable="columntim" msprop:Generator_ColumnPropNameInRow="tim" msprop:Generator_ColumnPropNameInTable="timColumn" msprop:Generator_UserColumnName="tim" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

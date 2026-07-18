@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.170.1000.7\build\net472\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.170.1000.7\build\net472\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DF1BA9B-5E7B-4926-90ED-6A2D1CF7BA6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>storemedicals</RootNamespace>
+    <AssemblyName>storemedicals</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>orders.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.170.1000.7\lib\net472\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=10.0.0.9, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.10.0.9\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="allform\Backup\frm_backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Backup\frm_backup.Designer.cs">
+      <DependentUpon>frm_backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Backup\frm_RestorBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Backup\frm_RestorBackup.Designer.cs">
+      <DependentUpon>frm_RestorBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\DataSet_tab_deble.cs">
+      <DependentUpon>DataSet_tab_deble.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="allform\DataSet_tab_deble.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_tab_deble.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="allform\form_string_kazina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\form_string_kazina.Designer.cs">
+      <DependentUpon>form_string_kazina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Form_test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Form_test.Designer.cs">
+      <DependentUpon>Form_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmAddusers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmAddusers.Designer.cs">
+      <DependentUpon>frmAddusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmlog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmlog.Designer.cs">
+      <DependentUpon>frmlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmSuplerManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmSuplerManger.Designer.cs">
+      <DependentUpon>frmSuplerManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmSupplier.Designer.cs">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmUserMannger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmUserMannger.Designer.cs">
+      <DependentUpon>frmUserMannger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_about.Designer.cs">
+      <DependentUpon>frm_about.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_addcustmer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_addcustmer.Designer.cs">
+      <DependentUpon>frm_addcustmer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_cust_mang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_cust_mang.Designer.cs">
+      <DependentUpon>frm_cust_mang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_Expenses.Designer.cs">
+      <DependentUpon>frm_Expenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_fatorashra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_fatorashra.Designer.cs">
+      <DependentUpon>frm_fatorashra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_khzena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_khzena.Designer.cs">
+      <DependentUpon>frm_khzena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_mange_store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_mange_store.Designer.cs">
+      <DependentUpon>frm_mange_store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_show_imgCust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_show_imgCust.Designer.cs">
+      <DependentUpon>frm_show_imgCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_sting_serverLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_sting_serverLog.Designer.cs">
+      <DependentUpon>frm_sting_serverLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_store.Designer.cs">
+      <DependentUpon>frm_store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_suppList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_suppList.Designer.cs">
+      <DependentUpon>frm_suppList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frm_Top_sale_Sites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frm_Top_sale_Sites.Designer.cs">
+      <DependentUpon>frm_Top_sale_Sites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\Form_SAL_SUM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\Form_SAL_SUM.Designer.cs">
+      <DependentUpon>Form_SAL_SUM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\Form_updatequt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\Form_updatequt.Designer.cs">
+      <DependentUpon>Form_updatequt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\frm_Additem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\frm_Additem.Designer.cs">
+      <DependentUpon>frm_Additem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\frm_company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\frm_company.Designer.cs">
+      <DependentUpon>frm_company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\frm_item_Expert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\frm_item_Expert.Designer.cs">
+      <DependentUpon>frm_item_Expert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\frm_item_Expert_Appro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\frm_item_Expert_Appro.Designer.cs">
+      <DependentUpon>frm_item_Expert_Appro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\item\frm_manger_item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\item\frm_manger_item.Designer.cs">
+      <DependentUpon>frm_manger_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purchases.Designer.cs">
+      <DependentUpon>frm_purchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purch_forManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purch_forManger.Designer.cs">
+      <DependentUpon>frm_purch_forManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purch_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\purchees\frm_purch_list.Designer.cs">
+      <DependentUpon>frm_purch_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Records\Form_Add_Records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Records\Form_Add_Records.Designer.cs">
+      <DependentUpon>Form_Add_Records.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\CrystalReport_test.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_test.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormREPTYM_PIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormREPTYM_PIN.Designer.cs">
+      <DependentUpon>FormREPTYM_PIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormREP_exxx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormREP_exxx.Designer.cs">
+      <DependentUpon>FormREP_exxx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormSALERWTIM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\FormSALERWTIM.Designer.cs">
+      <DependentUpon>FormSALERWTIM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_CrystalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_CrystalReport.Designer.cs">
+      <DependentUpon>Form_CrystalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_REPORTSALERS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_REPORTSALERS.Designer.cs">
+      <DependentUpon>Form_REPORTSALERS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_REP_DATE_BETT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\Form_REP_DATE_BETT.Designer.cs">
+      <DependentUpon>Form_REP_DATE_BETT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\For_SALITM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\REPORTITEM\For_SALITM.Designer.cs">
+      <DependentUpon>For_SALITM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_reten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_reten.Designer.cs">
+      <DependentUpon>frm_reten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_reten_mang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_reten_mang.Designer.cs">
+      <DependentUpon>frm_reten_mang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_retnlistitem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\Retenitem\frm_retnlistitem.Designer.cs">
+      <DependentUpon>frm_retnlistitem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\formMangaerEXP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\formMangaerEXP.Designer.cs">
+      <DependentUpon>formMangaerEXP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\form_Exception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\form_Exception.Designer.cs">
+      <DependentUpon>form_Exception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\form_export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\form_export.Designer.cs">
+      <DependentUpon>form_export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\form_Mana_Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\form_Mana_Order.Designer.cs">
+      <DependentUpon>form_Mana_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\Form_Order_Stp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\Form_Order_Stp.Designer.cs">
+      <DependentUpon>Form_Order_Stp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\form_password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\form_password.Designer.cs">
+      <DependentUpon>form_password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_compny_sal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_compny_sal.Designer.cs">
+      <DependentUpon>frm_compny_sal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction.Designer.cs">
+      <DependentUpon>frm_correction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction_in_saler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction_in_saler.Designer.cs">
+      <DependentUpon>frm_correction_in_saler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction_in_saler_defe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_correction_in_saler_defe.Designer.cs">
+      <DependentUpon>frm_correction_in_saler_defe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_custList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_custList.Designer.cs">
+      <DependentUpon>frm_custList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\Frm_end_Quantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\Frm_end_Quantity.Designer.cs">
+      <DependentUpon>Frm_end_Quantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_itemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_itemList.Designer.cs">
+      <DependentUpon>frm_itemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_Item_Top.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_Item_Top.Designer.cs">
+      <DependentUpon>frm_Item_Top.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_mage_sal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_mage_sal.Designer.cs">
+      <DependentUpon>frm_mage_sal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_sale.Designer.cs">
+      <DependentUpon>frm_sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_sale_of_specific_item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_sale_of_specific_item.Designer.cs">
+      <DependentUpon>frm_sale_of_specific_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\Frm_sals_defe_controol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\Frm_sals_defe_controol.Designer.cs">
+      <DependentUpon>Frm_sals_defe_controol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\frm_search_SalAnd_purch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\frm_search_SalAnd_purch.Designer.cs">
+      <DependentUpon>frm_search_SalAnd_purch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form1_T.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form1_T.Designer.cs">
+      <DependentUpon>Form1_T.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormACC1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormACC1.Designer.cs">
+      <DependentUpon>FormACC1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormCustomerDetailedReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormCustomerDetailedReport.Designer.cs">
+      <DependentUpon>FormCustomerDetailedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormRepPBetwen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\FormRepPBetwen.Designer.cs">
+      <DependentUpon>FormRepPBetwen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_ACC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_ACC.Designer.cs">
+      <DependentUpon>Form_ACC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_Reoprt_tab_deble_ALL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_Reoprt_tab_deble_ALL.Designer.cs">
+      <DependentUpon>Form_Reoprt_tab_deble_ALL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_tabbb_deble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\report_saler\Form_tabbb_deble.Designer.cs">
+      <DependentUpon>Form_tabbb_deble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\Saler_formData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\Saler_formData.Designer.cs">
+      <DependentUpon>Saler_formData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\Saler_formData2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\Saler_formData2.Designer.cs">
+      <DependentUpon>Saler_formData2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\sales\sals_defe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\sales\sals_defe.Designer.cs">
+      <DependentUpon>sals_defe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLS\cls_company.cs" />
+    <Compile Include="CLS\cls_custmer.cs" />
+    <Compile Include="CLS\cls_item.cs" />
+    <Compile Include="CLS\cls_main.cs" />
+    <Compile Include="CLS\cls_reten.cs" />
+    <Compile Include="CLS\cls_sale.cs" />
+    <Compile Include="CLS\cls_store.cs" />
+    <Compile Include="DataSetORDER.cs">
+      <DependentUpon>DataSetORDER.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetORDER.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetORDER.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetREPO.cs">
+      <DependentUpon>DataSetREPO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetREPO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetREPO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetREPOZE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetREPOZE.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet_export.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_export.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet_GRD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_GRD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet_tab_deble2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_tab_deble2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRep_PR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRep_PR.Designer.cs">
+      <DependentUpon>FormRep_PR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_departure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_departure.Designer.cs">
+      <DependentUpon>Form_departure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_W_Tim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_W_Tim.Designer.cs">
+      <DependentUpon>Form_W_Tim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_server.Designer.cs">
+      <DependentUpon>frm_server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MEDICAL_STOREDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\MEDICAL_STOREDataSet.cs">
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\MEDICAL_STOREDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\repcust\MEDICAL_STOREDataSetCustmer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MEDICAL_STOREDataSetCustmer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\repcust\rep_cust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportsprint\repcust\rep_cust.Designer.cs">
+      <DependentUpon>rep_cust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\repitem\crys_print_All_item.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crys_print_All_item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\repitem\crys_print_on_item.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crys_print_on_item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\Rep\crstal_print_onePurche.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crstal_print_onePurche.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\Rep\CrystalReporttest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReporttest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\Rep\crystal_print_allPurch.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crystal_print_allPurch.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\Rep\frm_purch_on.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportsprint\Rep\frm_purch_on.Designer.cs">
+      <DependentUpon>frm_purch_on.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportsprint\rep_sal\print_All_salBillcrystal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>print_All_salBillcrystal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportsprint\rep_sal\print_one_sal_forcrystal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>print_one_sal_forcrystal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControlPurch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlPurch.Designer.cs">
+      <DependentUpon>UserControlPurch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLS\cls_catogry.cs" />
+    <Compile Include="CLS\cls_purch_order.cs" />
+    <Compile Include="CLS\cls_supler.cs" />
+    <Compile Include="CLS\cls_user.cs" />
+    <Compile Include="Data\DataAccesLayer.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allform\frmCatogry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allform\frmCatogry.Designer.cs">
+      <DependentUpon>frmCatogry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportsprint\frm_printRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportsprint\frm_printRep.Designer.cs">
+      <DependentUpon>frm_printRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_name.cs" />
+    <Compile Include="WOTIME.cs" />
+    <EmbeddedResource Include="allform\Backup\frm_backup.resx">
+      <DependentUpon>frm_backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\Backup\frm_RestorBackup.resx">
+      <DependentUpon>frm_RestorBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\form_string_kazina.resx">
+      <DependentUpon>form_string_kazina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\Form_test.resx">
+      <DependentUpon>Form_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmAddusers.resx">
+      <DependentUpon>frmAddusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmCatogry.resx">
+      <DependentUpon>frmCatogry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmlog.resx">
+      <DependentUpon>frmlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmSuplerManger.resx">
+      <DependentUpon>frmSuplerManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmSupplier.resx">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frmUserMannger.resx">
+      <DependentUpon>frmUserMannger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_about.resx">
+      <DependentUpon>frm_about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_addcustmer.resx">
+      <DependentUpon>frm_addcustmer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_cust_mang.resx">
+      <DependentUpon>frm_cust_mang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_Expenses.resx">
+      <DependentUpon>frm_Expenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_fatorashra.resx">
+      <DependentUpon>frm_fatorashra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_khzena.resx">
+      <DependentUpon>frm_khzena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_mange_store.resx">
+      <DependentUpon>frm_mange_store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_show_imgCust.resx">
+      <DependentUpon>frm_show_imgCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_sting_serverLog.resx">
+      <DependentUpon>frm_sting_serverLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_store.resx">
+      <DependentUpon>frm_store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_suppList.resx">
+      <DependentUpon>frm_suppList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\frm_Top_sale_Sites.resx">
+      <DependentUpon>frm_Top_sale_Sites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\Form_SAL_SUM.resx">
+      <DependentUpon>Form_SAL_SUM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\Form_updatequt.resx">
+      <DependentUpon>Form_updatequt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\frm_Additem.resx">
+      <DependentUpon>frm_Additem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\frm_company.resx">
+      <DependentUpon>frm_company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\frm_item_Expert.resx">
+      <DependentUpon>frm_item_Expert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\frm_item_Expert_Appro.resx">
+      <DependentUpon>frm_item_Expert_Appro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\item\frm_manger_item.resx">
+      <DependentUpon>frm_manger_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\purchees\frm_purchases.resx">
+      <DependentUpon>frm_purchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\purchees\frm_purch_forManger.resx">
+      <DependentUpon>frm_purch_forManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\purchees\frm_purch_list.resx">
+      <DependentUpon>frm_purch_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\Records\Form_Add_Records.resx">
+      <DependentUpon>Form_Add_Records.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\CrystalReport_test.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_test.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\FormREPTYM_PIN.resx">
+      <DependentUpon>FormREPTYM_PIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\FormREP_exxx.resx">
+      <DependentUpon>FormREP_exxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\FormSALERWTIM.resx">
+      <DependentUpon>FormSALERWTIM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\Form_CrystalReport.resx">
+      <DependentUpon>Form_CrystalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\Form_REPORTSALERS.resx">
+      <DependentUpon>Form_REPORTSALERS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\Form_REP_DATE_BETT.resx">
+      <DependentUpon>Form_REP_DATE_BETT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\For_SALITM.resx">
+      <DependentUpon>For_SALITM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\REPORTITEM\RepORDIT1.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\ReporGRD.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\ReportORDITTYP.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\ReportSaler_foData1.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\ReportUNSAL.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\Report_ALLDATA1.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\Report_between_date1.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\Report_export.rdlc" />
+    <EmbeddedResource Include="allform\REPORTITEM\RepSAL.rdlc" />
+    <EmbeddedResource Include="allform\Retenitem\frm_reten.resx">
+      <DependentUpon>frm_reten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\Retenitem\frm_reten_mang.resx">
+      <DependentUpon>frm_reten_mang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\Retenitem\frm_retnlistitem.resx">
+      <DependentUpon>frm_retnlistitem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\formMangaerEXP.resx">
+      <DependentUpon>formMangaerEXP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\form_Exception.resx">
+      <DependentUpon>form_Exception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\form_export.resx">
+      <DependentUpon>form_export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\form_Mana_Order.resx">
+      <DependentUpon>form_Mana_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\Form_Order_Stp.resx">
+      <DependentUpon>Form_Order_Stp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\form_password.resx">
+      <DependentUpon>form_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_compny_sal.resx">
+      <DependentUpon>frm_compny_sal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_correction.resx">
+      <DependentUpon>frm_correction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_correction_in_saler.resx">
+      <DependentUpon>frm_correction_in_saler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_correction_in_saler_defe.resx">
+      <DependentUpon>frm_correction_in_saler_defe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_custList.resx">
+      <DependentUpon>frm_custList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\Frm_end_Quantity.resx">
+      <DependentUpon>Frm_end_Quantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_itemList.resx">
+      <DependentUpon>frm_itemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_Item_Top.resx">
+      <DependentUpon>frm_Item_Top.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_mage_sal.resx">
+      <DependentUpon>frm_mage_sal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_sale.resx">
+      <DependentUpon>frm_sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_sale_of_specific_item.resx">
+      <DependentUpon>frm_sale_of_specific_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\Frm_sals_defe_controol.resx">
+      <DependentUpon>Frm_sals_defe_controol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\frm_search_SalAnd_purch.resx">
+      <DependentUpon>frm_search_SalAnd_purch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\CustDedReport.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\CustomerDedReport.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\CustomerDetailedReport.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Form1_T.resx">
+      <DependentUpon>Form1_T.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\FormACC1.resx">
+      <DependentUpon>FormACC1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\FormCustomerDetailedReport.resx">
+      <DependentUpon>FormCustomerDetailedReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\FormRepPBetwen.resx">
+      <DependentUpon>FormRepPBetwen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\Form_ACC.resx">
+      <DependentUpon>Form_ACC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\Form_Reoprt_tab_deble_ALL.resx">
+      <DependentUpon>Form_Reoprt_tab_deble_ALL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\Form_tabbb_deble.resx">
+      <DependentUpon>Form_tabbb_deble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\report_saler\Report1tttttttt.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\ReportACC1.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\ReportCUSDETALS.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\ReportTOTAL.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\ReportView_Order_Full_Details.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Report_ACC.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Report_tab_deble.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Report_tab_deble_ALL.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Report_tab_deble_paid_Between.rdlc" />
+    <EmbeddedResource Include="allform\sales\report_saler\Report_TOT.rdlc" />
+    <EmbeddedResource Include="allform\sales\Saler_formData.resx">
+      <DependentUpon>Saler_formData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\Saler_formData2.resx">
+      <DependentUpon>Saler_formData2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allform\sales\sals_defe.resx">
+      <DependentUpon>sals_defe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRep_PR.resx">
+      <DependentUpon>FormRep_PR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_departure.resx">
+      <DependentUpon>Form_departure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_W_Tim.resx">
+      <DependentUpon>Form_W_Tim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_server.resx">
+      <DependentUpon>frm_server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="reportsprint\repcust\Report3.rdlc" />
+    <EmbeddedResource Include="reportsprint\repcust\Report4.rdlc" />
+    <EmbeddedResource Include="reportsprint\repcust\rep_cust.resx">
+      <DependentUpon>rep_cust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\repitem\crys_print_All_item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crys_print_All_item.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\repitem\crys_print_on_item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crys_print_on_item.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\Rep\crstal_print_onePurche.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crstal_print_onePurche.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\Rep\CrystalReporttest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReporttest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\Rep\crystal_print_allPurch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crystal_print_allPurch.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\Rep\frm_purch_on.resx">
+      <DependentUpon>frm_purch_on.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\rep_sal\print_All_salBillcrystal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>print_All_salBillcrystal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\rep_sal\print_one_sal_forcrystal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>print_one_sal_forcrystal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPurch.resx">
+      <DependentUpon>UserControlPurch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="reportsprint\frm_printRep.resx">
+      <DependentUpon>frm_printRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportsprint\Report1.rdlc" />
+    <EmbeddedResource Include="reportsprint\Report2.rdlc" />
+    <None Include="allform\DataSet_tab_deble.xsc">
+      <DependentUpon>DataSet_tab_deble.xsd</DependentUpon>
+    </None>
+    <None Include="allform\DataSet_tab_deble.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_tab_deble.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="allform\DataSet_tab_deble.xss">
+      <DependentUpon>DataSet_tab_deble.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetORDER.xsc">
+      <DependentUpon>DataSetORDER.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetORDER.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetORDER.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetORDER.xss">
+      <DependentUpon>DataSetORDER.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetREPO.xsc">
+      <DependentUpon>DataSetREPO.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetREPO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetREPO.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetREPO.xss">
+      <DependentUpon>DataSetREPO.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetREPOZE.xsc">
+      <DependentUpon>DataSetREPOZE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetREPOZE.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetREPOZE.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetREPOZE.xss">
+      <DependentUpon>DataSetREPOZE.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_export.xsc">
+      <DependentUpon>DataSet_export.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_export.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_export.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet_export.xss">
+      <DependentUpon>DataSet_export.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_GRD.xsc">
+      <DependentUpon>DataSet_GRD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_GRD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_GRD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet_GRD.xss">
+      <DependentUpon>DataSet_GRD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_tab_deble2.xsc">
+      <DependentUpon>DataSet_tab_deble2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_tab_deble2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_tab_deble2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet_tab_deble2.xss">
+      <DependentUpon>DataSet_tab_deble2.xsd</DependentUpon>
+    </None>
+    <None Include="MEDICAL_STOREDataSet.xsc">
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MEDICAL_STOREDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MEDICAL_STOREDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MEDICAL_STOREDataSet.xss">
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="reportsprint\repcust\MEDICAL_STOREDataSetCustmer.xsc">
+      <DependentUpon>MEDICAL_STOREDataSetCustmer.xsd</DependentUpon>
+    </None>
+    <None Include="reportsprint\repcust\MEDICAL_STOREDataSetCustmer.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MEDICAL_STOREDataSetCustmer.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="reportsprint\repcust\MEDICAL_STOREDataSetCustmer.xss">
+      <DependentUpon>MEDICAL_STOREDataSetCustmer.xsd</DependentUpon>
+    </None>
+    <None Include="reportsprint\MEDICAL_STOREDataSet.xsc">
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="reportsprint\MEDICAL_STOREDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>MEDICAL_STOREDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="reportsprint\MEDICAL_STOREDataSet.xss">
+      <DependentUpon>MEDICAL_STOREDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1486498420_Login Manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oxygen-Icons.org-Oxygen-Actions-svn-update.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gallery-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ampeross-Qetto-2-Trash.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1486498923_ordering.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-window-close-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2g8tpZ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %285%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %287%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-server-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Places-server-database-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1486498885_sales-report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-document-new-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bank-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addproducts.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="orders.ico" />
+    <None Include="Resources\icommd.jpg" />
+    <None Include="Resources\icomd.jpg" />
+    <None Include="Resources\icons8_Refresh_40px.png" />
+    <None Include="Resources\icons8_Refresh_60px.png" />
+    <None Include="Resources\print-flat.png" />
+    <None Include="Resources\icons_Print.png" />
+    <None Include="Resources\icons_printer.png" />
+    <None Include="Resources\iconprint.png" />
+    <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.170.1000.7\build\net472\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.170.1000.7\build\net472\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
